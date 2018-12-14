@@ -13,6 +13,9 @@ import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyingBehavior;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehavior;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehavior;
 import external.Bitmap;
+import external.BitmapImpl;
+import external.GIF;
+import external.GifImpl;
 
 /**
  * Base duck class that will be used for ducks on the pond
@@ -119,4 +122,13 @@ public class Duck implements DuckType {
 	 * Name for type of duck
 	 */
 	private final String duckTypeName;
+
+	/**
+  	 * Creates a new Mallard duck with appropriate bitmaps and GIFs
+  	 */
+ 	public Mallard() {
+ 	super("Mallard",
+ 	"mallard.bmp",
+ 	BehaviorStrategy.getBehaviors("mallard flap","mallard paddle", QuackType.DUCK));
+ 	}		
 }
