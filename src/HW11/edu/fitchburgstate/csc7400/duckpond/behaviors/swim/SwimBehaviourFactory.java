@@ -2,7 +2,7 @@
  * Class: Object-Oriented Design and Analysis
  * Professor: Orlando Montalvo
  * Assignment: HW 11
- * Students: Saran,Vamsi,Raghu
+ * Author: Saran,Vamsi,Raghu
  * Date: 2018-11-28
  */
 
@@ -20,7 +20,7 @@ public class SwimBehaviourFactory {
 	 * @return instance
 	 */
 
-	public static SwimBehavior SwBe(String sb) {
-		return new SimpleSwim(sb);
+	public static SwimBehavior createSwimBehavior(String behavior) {
+		return new SimpleSwim(behavior);
 	}
 

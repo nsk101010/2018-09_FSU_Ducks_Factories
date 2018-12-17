@@ -2,15 +2,16 @@
  * Class: Object-Oriented Design and Analysis
  * Professor: Orlando Montalvo
  * Assignment: HW 11
- * Students: Saran,Vamsi,Raghu
+ * Author: Saran,Vamsi,Raghu
  * Date: 2018-11-28
  */
 
 package HW11.edu.fitchburgstate.csc7400.duckpond.ducks;
 
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.CannotFly;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.CannotQuack;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SimpleSwim;
+//import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyBehaviourFactory;
+//import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehaviourFactory;
+//import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehaviorFactory;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.BehaviourStrategy;
 
 /**
  * Wooden decoys for the duck.
@@ -23,22 +24,10 @@ public class WoodenDecoy extends Duck {
 	public WoodenDecoy() {
 		super("Wooden Decoy",
 				"wooden_decoy.bmp",
-				new CannotFly(),
-				new SimpleSwim("decoy floating"),
-				new CannotQuack());
-	}
+	/** FlyBehaviourFactory.createFlyBehavior(null),
+				  *SwimBehaviorFactory.createSwimBehavior("decoy floating"),
+				  *QuackBehaviourFactory.createQuackBehavior(null));	*/
+				  BehaviourStrategy.getBehaviors(null, "decoy floating", null));
 
-	/** 
-         *  Wooden decoys don't fly.
-   	 */
-  	public void fly() {
-    	System.out.println("Decoy still swims");
-  	}
-
-  	/** 
-   	 *  Wooden decoys don't quack
-   	 */
-  	public void quack() {
-    	System.out.println("Decoy is silent");
   	}	
 }

@@ -2,7 +2,7 @@
  * Class: Object-Oriented Design and Analysis
  * Professor: Orlando Montalvo
  * Assignment: HW 11
- * Students: Saran,Vamsi,Raghu
+ * Authors: Saran,Vamsi,Raghu
  * Date: 2018-11-28
  */
 
@@ -13,9 +13,7 @@ import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyingBehavior;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehavior;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehavior;
 import external.Bitmap;
-import external.BitmapImpl;
-import external.GIF;
-import external.GifImpl;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.BehaviourStrategy;
 
 /**
  * Base duck class that will be used for ducks on the pond
@@ -39,14 +37,12 @@ public class Duck implements DuckType {
 
 	public Duck(String duckTypeName,
 			String bitmapFilename, 
-			FlyingBehavior flyingBehavior, 
-			SwimBehavior swimmingBehavior, 
-			QuackBehavior quackingBehavior) {
+			BehaviorStrategy behaviorstrategy) {
 		this.duckTypeName = duckTypeName;
 		this.still = BehaviorHelper.createBitmap(bitmapFilename);
-		this.flyBehavior = flyingBehavior;
-		this.swimBehavior = swimmingBehavior;
-		this.quackBehavior = quackingBehavior;
+		this.flyBehavior = behaviorstrategy.getFlyBehavior;
+		this.swimBehavior = behaviorstrategy.getSwimBehavior;
+		this.quackBehavior = behaviorstrategy.getQuackBehavior;
 	}
 
 	/**
@@ -123,12 +119,4 @@ public class Duck implements DuckType {
 	 */
 	private final String duckTypeName;
 
-	/**
-  	 * Creates a new Mallard duck with appropriate bitmaps and GIFs
-  	 */
- 	public Mallard() {
- 	super("Mallard",
- 	"mallard.bmp",
- 	BehaviorStrategy.getBehaviors("mallard flap","mallard paddle", QuackType.DUCK));
- 	}		
 }

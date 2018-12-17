@@ -2,7 +2,7 @@
  * Class: Object-Oriented Design and Analysis
  * Professor: Orlando Montalvo
  * Assignment: HW 11
- * Students: Saran,Vamsi,Raghu
+ * Author: Saran,Vamsi,Raghu
  * Date: 2018-11-28
  */
 
@@ -20,19 +20,20 @@ public class FlyBehaviorFactory {
 	 * @return instance of the class
 	 */
 
-	public static FlyingBehavior FlyBehavior(String t)
+	public static FlyingBehavior createFlyBehavior(String type)
 	{
-		FlyingBehavior f=null;
-		if(t!=null)
+		FlyingBehavior flyingbehavior;
+
+		if(type!=null)
 		{
-			f=new SimpleFly(t);
+			flyingbehavior=new SimpleFly(type);
 			
 		}
 		else
 		{
-			f=new CannotFly();
+			flyingbehavior=new CannotFly();
 		}
-		return f;
+		return flyingbehavior;
 	}
 
 }

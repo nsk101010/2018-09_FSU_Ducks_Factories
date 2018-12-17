@@ -2,18 +2,25 @@
  * Class: Object-Oriented Design and Analysis
  * Professor: Orlando Montalvo
  * Assignment: HW 12
- * Students: Saran,Vamsi,Raghu
+ * Author: Saran,Vamsi,Raghu
  * Date: 2018-11-28
  */
 
 package HW11.edu.fitchburgstate.csc7400.duckpond.behaviors;
 
-import external.Bitmap;
-import external.BitmapImpl;
-import external.GIF;
-import external.GifImpl;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyBehaviourFactory;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyingBehavior;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehavior;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehaviourFactory;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackType;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehavior;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehaviorFactory;
 
 public class BehaviourStrategy {
+
+	public String flyBehavior;
+	public QuackType quackBehavior;
+	public String swimBehavior;
 
 	/**  
 	 * Returns the flying behavior
@@ -33,14 +40,24 @@ public class BehaviourStrategy {
 
 	public SwimBehavior getSwimBehavior()
 
+public SwimBehavior getSwimBehavior() {
+		 return SwimBehaviorFactory.createSwimBehavior(this.swimBehavior);
+	 }
 
- 	/**
-  	 * Creates a new Mallard duck with appropriate bitmaps and GIFs
-  	 */
- 
-	public Mallard() {
- 	super("Mallard",
- 	"mallard.bmp",
- 	BehaviorStrategy.getBehaviors("mallard flap","mallard paddle", QuackType.DUCK));
+	 /**
+	  * specific values for a duck behavior initialize
+	  * @param flyBehavior text to describe flying behavior 
+	  * @param swimBehavior text to describe swimming behavior 
+	  * @param quackBehavior QuackType to describe duck sound 
+	  * @return behaviourstrategy an instance of BehaviorStrategy
+	  */
+	public static BehaviourStrategy getBehaviors(String flyBehavior, String swimBehavior, QuackType quackBehavior) 
+	{
+		BehaviourStrategy behaviourstrategy = new BehaviourStrategy();
+		behaviourstrategy.flyBehavior = flyBehavior;
+		behaviourstrategy.quackBehavior = quackBehavior;
+		behaviourstrategy.swimBehavior = swimBehavior;
+		return behaviourstrategy;
+
  	}
 }
