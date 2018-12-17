@@ -28,19 +28,26 @@ public class BehaviourStrategy {
  	
 	public FlyingBehavior getFlyBehavior()
 
+	{
+		 return FlyBehaviourFactory.createFlyBehavior(this.flyBehavior);
+	}	
+
  	/**
   	 * Returns the quacking behavior
   	 */
 
  	public QuackBehavior getQuackBehavior()
 
+	{
+		 return QuackBehaviourFactory.createQuackBehavior(this.quackBehavior);
+	}
+
+
  	/**
   	 * Returns the swimming behavior
   	 */
 
-	public SwimBehavior getSwimBehavior()
-
-public SwimBehavior getSwimBehavior() {
+	public SwimBehavior getSwimBehavior() {
 		 return SwimBehaviorFactory.createSwimBehavior(this.swimBehavior);
 	 }
 
